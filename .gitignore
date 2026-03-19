@@ -51,4 +51,4 @@ venv.bak/
 
 runs/
 
-.pt
+/yolov8n.pt
