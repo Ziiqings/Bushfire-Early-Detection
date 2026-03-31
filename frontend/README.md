@@ -1,16 +1,46 @@
-# React + Vite
+# Frontend – Bushfire Smoke Detection Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This is the frontend interface for the Bushfire Smoke Detection System.
 
-Currently, two official plugins are available:
+It provides a user interface for:
+- Uploading images
+- Triggering detection
+- Viewing detection results
+- Monitoring risk levels
+- Viewing detection history
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This version is currently a UI prototype (Mock Mode) without backend integration.
 
-## React Compiler
+## Tech Stack
+- React
+- Vite
+- CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
+```
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+Open: http://localhost:5173
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Structure
+```
+src/
+├── components/
+├── App.jsx
+├── main.jsx
+└── App.css
+```
+
+## Features
+- Dashboard layout
+- Mock detection results
+- Risk display
+- Static history
+
+## Next
+- Image upload preview
+- Connect backend API
+- Draw detection boxes
