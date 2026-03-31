@@ -75,6 +75,11 @@ Frontend Visualization
 ## Getting Started
 
 ### Frontend
+install Node.js first
+
+```
+https://nodejs.org/en/download
+```
 
 ```
 cd frontend
