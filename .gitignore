@@ -51,7 +51,7 @@ venv.bak/
 
 runs/
 
-/yolov8n.pt
+/models/*
 
 data/
 /data/
