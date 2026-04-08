@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 function DashboardView({
   selectedFile,
   previewUrl,
@@ -19,6 +21,8 @@ function DashboardView({
   const riskClassName = result?.risk_level
     ? `risk-${result.risk_level}`
     : "";
+
+  const imgRef = useRef(null);
 
   return (
     <div className="app">
@@ -71,11 +75,13 @@ function DashboardView({
         <section className="card">
           <h2>Image Preview</h2>
 
-          <div className="image-box">
+          <div className="image-box" style={{position: "relative"}}>
             {previewUrl ? (
+                <>
               <img
                 src={previewUrl}
                 alt="Preview"
+                ref={imgRef}
                 style={{
                   maxWidth: "100%",
                   maxHeight: "100%",
@@ -83,6 +89,43 @@ function DashboardView({
                   borderRadius: "12px",
                 }}
               />
+            {result &&
+              imgRef.current &&
+              result.detections.map((det, index) => {
+                const [x1, y1, x2, y2] = det.bbox;
+
+                const scaleX =
+                  imgRef.current.clientWidth / result.image_width;
+                const scaleY =
+                  imgRef.current.clientHeight / result.image_height;
+
+                return (
+                  <div
+                    key={index}
+                    style={{
+                      position: "absolute",
+                      left: x1 * scaleX,
+                      top: y1 * scaleY,
+                      width: (x2 - x1) * scaleX,
+                      height: (y2 - y1) * scaleY,
+                      border: "2px solid red",
+                      boxSizing: "border-box",
+                    }}
+                  >
+                    <span
+                      style={{
+                        background: "red",
+                        color: "white",
+                        fontSize: "12px",
+                        padding: "2px 4px",
+                      }}
+                    >
+                      {det.class_name} ({det.confidence})
+                    </span>
+                  </div>
+                );
+              })}
+          </>
             ) : (
               <span>Image goes here</span>
             )}
