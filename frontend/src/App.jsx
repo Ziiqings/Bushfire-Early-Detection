@@ -28,6 +28,14 @@ function App() {
     setError("");
   };
 
+  const getPrimaryLabel = (data) => {
+    if (!data?.summary) return "No threat";
+
+    if (data.summary.fire_count > 0) return "fire";
+    if (data.summary.smoke_count > 0) return "smoke";
+    return "No threat";
+  };
+
   const handleDetect = async () => {
     if (!selectedFile) {
       setError("Please upload an image first.");
@@ -60,10 +68,7 @@ function App() {
 
       const historyItem = {
         filename: data.filename,
-        label:
-          data.detections?.length > 0
-            ? data.detections[0].class_name
-            : "No threat",
+        label: getPrimaryLabel(data),
         risk: data.risk_level || "safe",
       };
 

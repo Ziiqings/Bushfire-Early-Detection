@@ -13,10 +13,13 @@ function DashboardView({
   handleDetect,
   handleClear,
 }) {
-  const topLabel =
-    result?.detections?.length > 0
-      ? result.detections[0].class_name
-      : "No detection";
+  const topLabel = (() => {
+    if (!result?.summary) return "No detection";
+
+    if (result.summary.fire_count > 0) return "fire";
+    if (result.summary.smoke_count > 0) return "smoke";
+    return "No detection";
+  })();
 
   const riskClassName = result?.risk_level
     ? `risk-${result.risk_level}`
