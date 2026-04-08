@@ -56,4 +56,4 @@ runs/
 data/
 /data/
 
-/models/
+/backend/app/models/
