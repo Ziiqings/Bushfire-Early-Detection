@@ -30,7 +30,7 @@ data/wildfire/data/
 ```
 
 ## Train
-yolo detect train data=data.yaml model=yolov8n.pt epochs=50
+yolo detect train data=data.yaml model=yolov8n.pt epochs=50 imgsz=640 batch=16
 
 ## Output
 runs/detect/train/weights/

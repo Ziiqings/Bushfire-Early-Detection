@@ -58,3 +58,7 @@ data/
 
 /backend/app/models/
 /backend/temp_uploads/
+
+training/data_preparing/data/wildfire/data/
+*.cache
+yolov8s.pt
