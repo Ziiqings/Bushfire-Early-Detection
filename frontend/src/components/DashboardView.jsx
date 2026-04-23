@@ -8,7 +8,6 @@ function DashboardView({
   result,
   loading,
   error,
-  history,
   handleFileChange,
   handleDetect,
   handleClear,
